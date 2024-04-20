@@ -1,0 +1,22 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+#        exclude: "env,beans"
+    jmx:
+      exposure:
+        include: "*"
+spring:
+  cloud:
+    function:
+      definition: httpSupplier;toUpperCase
+    stream:
+      
+      bindings:
+        httpSupplier-out-0: 
+          destination: input
+        toUpperCase-in-0:
+          destination: input
+        toUpperCase-out-0:
+          destination: output
